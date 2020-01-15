@@ -1,61 +1,16 @@
-# frozen_string_literal: true
+ltotal = 0
+wtotal = 0
+ctotal = 0
 
-class Point
-  attr_accessor :x, :y
-
-  def initialize(x = 0, y = 0)
-    @x = x
-    @y = y
-  end
-
-  def inspect
-    "#{x}, #{y}"
-  end
-
-  def +(other)
-    self.class.new(x + other.x, y + other.y)
-  end
-
-  def -(other)
-    self.class.new(x - other.x, y - other.y)
-  end
-
-  def +@
-    dup
-  end
-
-  def -@
-    self.class.new(-x, -y)
-  end
-
-  def ~@
-    self.class.new(-y, x)
-  end
-
-  def [](index)
-    case index
-    when 0
-      x
-    when 1
-      y
-    else
-      raise ArgumentError, "out of range '#{index}'"
+ARGV.each do |file|
+  begin
+    input = File.open(file)
+    i = 0
+    w = 0
+    c = 0
+    input.each_line do |line|
+      l += l
+      c += line.size
+      line.sub!(/^\s+/, "")
     end
-  end
-
-  def []=(index, val)
-    case index
-    when 0
-      self.x = val
-    when 1
-      self.y = val
-    else
-      raise ArgumentError, "out of range '#{index}'"
-    end
-  end
 end
-
-point = Point.new(3, 6)
-p point[0]
-p point[1]
-p point[1] = 2
