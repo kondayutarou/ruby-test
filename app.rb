@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
-alphabet = %w[a b c d e]
-alphabet.each do |i|
-  puts i.upcase
+sum = 0
+outcome = { '参加費' => 1000, 'ストラップ代' => 1000, '懇親会会費' => 4000 }
+outcome.each do |pair|
+  sum += pair[1]
 end
+puts "合計:#{sum}"
