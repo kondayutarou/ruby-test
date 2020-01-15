@@ -1,3 +1,3 @@
 val = "a"
-n = Integer(val)
+n = Integer(val) rescue 0
 p n
