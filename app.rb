@@ -1,8 +1,16 @@
 # frozen_string_literal: true
 
-sum = 0
-outcome = { '参加費' => 1000, 'ストラップ代' => 1000, '懇親会会費' => 4000 }
-outcome.each do |item, price|
-  sum += price
+def total(from, to)
+  result = 0
+  from.upto(to) do |num|
+    result += if block_given?
+                yield(num)
+              else
+                num
+              end
+  end
+  result
 end
-puts "合計:#{sum}"
+
+p total(1, 10)
+p total(1, 10) { |num| num**2 }
