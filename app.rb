@@ -1,7 +1,11 @@
-def call_each(ary, &block)
-  ary.each(&block)
-end
+# frozen_string_literal: true
 
-call_each [1, 2, 3] do |item|
-  p item
+x = y = z = 0
+ary = [1, 2, 3]
+ary.each do |x; y|
+  y = x
+  z = x
+  p [x, y, z]
 end
+puts
+p [x, y, z]
