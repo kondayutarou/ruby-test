@@ -1,16 +1,7 @@
-# frozen_string_literal: true
-
-def total(from, to)
-  result = 0
-  from.upto(to) do |num|
-    result += if block_given?
-                yield(num)
-              else
-                num
-              end
-  end
-  result
+def call_each(ary, &block)
+  ary.each(&block)
 end
 
-p total(1, 10)
-p total(1, 10) { |num| num**2 }
+call_each [1, 2, 3] do |item|
+  p item
+end
